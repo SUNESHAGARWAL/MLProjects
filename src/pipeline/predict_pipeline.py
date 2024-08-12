@@ -1,5 +1,6 @@
+import os
 import sys
-import pandas as pd 
+import pandas as pd
 from src.exception import CustomException
 from src.utils import load_object
 
@@ -7,7 +8,7 @@ from src.utils import load_object
 class PredictPipeline:
     def __init__(self):
         pass
-     
+
     def predict(self,features):
         try:
             model_path=os.path.join("artifacts","model.pkl")
@@ -23,8 +24,10 @@ class PredictPipeline:
         except Exception as e:
             raise CustomException(e,sys)
 
+
+
 class CustomData:
-    def __init__(self,
+    def __init__(  self,
         gender: str,
         race_ethnicity: str,
         parental_level_of_education,
@@ -63,3 +66,4 @@ class CustomData:
 
         except Exception as e:
             raise CustomException(e, sys)
+
